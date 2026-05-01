@@ -389,7 +389,7 @@ function Navbar({current,navigate}: {current: string; navigate: (p: string) => v
       }}>
         <Toolbar sx={{px:{xs:2,sm:4,md:"5vw",lg:"72px"},height:68,justifyContent:"space-between"}}>
           <Box data-hover onClick={()=>go("Home")} sx={{display:"flex",alignItems:"center",cursor:"pointer"}}>
-            <Box component="img" src={arixLogo} alt="Arix Tech" sx={{height:38,width:"auto",objectFit:"contain",filter:"drop-shadow(0 0 10px rgba(0,212,255,0.35))",transition:"filter .3s","&:hover":{filter:"drop-shadow(0 0 16px rgba(0,212,255,0.6))"}}}/>
+            <Box component="img" src={arixLogo} alt="Arix Tech" sx={{height:170,width:"auto",objectFit:"contain",filter:"drop-shadow(0 0 10px rgba(0,212,255,0.35))",transition:"filter .3s","&:hover":{filter:"drop-shadow(0 0 16px rgba(0,212,255,0.6))"}}}/>
           </Box>
 
           {!isMob&&(
