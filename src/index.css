@@ -1,0 +1,4 @@
+/* Global reset and base styles are injected by App.tsx via GLOBAL_CSS */
+body {
+  margin: 0;
+}
