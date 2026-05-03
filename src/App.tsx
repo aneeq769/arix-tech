@@ -5,6 +5,7 @@ document.head.appendChild(fontLink);
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import arixLogo from "./assets/arix-logo.png";
+import emailjs from "@emailjs/browser";
 import {
   Box, Typography, Button, AppBar, Toolbar, TextField,
   Drawer, useMediaQuery, useTheme,
