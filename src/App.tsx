@@ -1,3 +1,8 @@
+const fontLink = document.createElement("link");
+fontLink.rel = "stylesheet";
+fontLink.href = "https://fonts.cdnfonts.com/css/nasalization";
+document.head.appendChild(fontLink);
+
 import { useState, useEffect, useRef, useCallback } from "react";
 import arixLogo from "./assets/arix-logo.png";
 import {
@@ -17,10 +22,10 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: "'DM Sans', sans-serif",
-    h1: { fontFamily: "'Syne', sans-serif", fontWeight: 800 },
-    h2: { fontFamily: "'Syne', sans-serif", fontWeight: 800 },
-    h3: { fontFamily: "'Syne', sans-serif", fontWeight: 700 },
-    h4: { fontFamily: "'Syne', sans-serif", fontWeight: 700 },
+    h1: { fontFamily: "'Nasalization Rg', 'Nasalization', sans-serif", fontWeight: 400 },
+    h2: { fontFamily: "'Nasalization Rg', 'Nasalization', sans-serif", fontWeight: 400 },
+    h3: { fontFamily: "'Nasalization Rg', 'Nasalization', sans-serif", fontWeight: 400 },
+    h4: { fontFamily: "'Nasalization Rg', 'Nasalization', sans-serif", fontWeight: 400 },
   },
   components: {
     MuiButton: { styleOverrides: { root: { textTransform: "none", borderRadius: 8 } } },
@@ -34,7 +39,7 @@ const V  = "#a855f7";
 const G  = "#10b981";
 const AM = "#f59e0b";
 const MONO = "'Space Mono', monospace";
-const SYNE = "'Syne', sans-serif";
+const SYNE = "'Nasalization Rg', 'Nasalization', sans-serif";
 const B0  = "rgba(0,212,255,0)";
 const B10 = "rgba(0,212,255,0.10)";
 const B20 = "rgba(0,212,255,0.20)";
@@ -162,7 +167,9 @@ function getBotReply(msg: string): string {
 
 // ─── GLOBAL STYLES ────────────────────────────────────────────────────────────
 const GLOBAL_CSS = `
+@import url('https://fonts.cdnfonts.com/css/nasalization');
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{cursor:none;overflow-x:hidden;background:#020408;}
@@ -752,14 +759,23 @@ function ContactPage() {
   const [form,setForm]=useState({name:"",email:"",subject:"",msg:""});
   const [sent,setSent]=useState(false);
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){setForm(f=>({...f,[e.target.name]:e.target.value}));}
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>){
-    e.preventDefault();
-    const name=form.name.trim()||"Not provided",subject=form.subject.trim()||"Project Inquiry from Arix Tech Website",msg=form.msg.trim()||"No message.";
-    const body=`Name: ${name}\n\nMessage:\n${msg}`;
-    const email="support.arixtech@gmail.com";
-    window.location.href=`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSent(true);setTimeout(()=>setSent(false),4000);
-  }
+  function handleSubmit(){
+    const name = form.name.trim() || "Not provided";
+    const email = form.email.trim() || "Not provided";
+    const subject = form.subject.trim() || "Project Inquiry from Arix Tech Website";
+    const msg = form.msg.trim() || "No message.";
+    
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`;
+    const recipient = "support.arixtech@gmail.com";
+    
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    setSent(true);
+    setTimeout(() => {
+        window.location.href = mailtoLink;
+    }, 100);
+    setTimeout(() => setSent(false), 4000);
+}
   const fieldSx={
     "& .MuiOutlinedInput-root":{background:"rgba(0,212,255,.03)",borderRadius:"10px",fontSize:".92rem",
       "& fieldset":{borderColor:BORDER,borderWidth:"1px"},"&:hover fieldset":{borderColor:BHI},"&.Mui-focused fieldset":{borderColor:C,boxShadow:`0 0 0 3px rgba(0,212,255,.08)`}},
