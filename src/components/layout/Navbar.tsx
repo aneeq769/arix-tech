@@ -24,9 +24,9 @@ export function Navbar({ current, navigate }: { current: string; navigate: Navig
   return (
     <>
       <AppBar position="fixed" elevation={0} sx={{ background: scrolled ? "rgba(2,4,8,.92)" : "rgba(2,4,8,.7)", backdropFilter: "blur(28px)", borderBottom: `1px solid ${scrolled ? BHI : BORDER}`, transition: "all .4s", boxShadow: scrolled ? `0 1px 40px rgba(0,212,255,.08)` : "none" }}>
-        <Toolbar sx={{ px: { xs: 2, sm: 4, md: "5vw", lg: "72px" }, height: 68, justifyContent: "space-between" }}>
+        <Toolbar sx={{ px: { xs: 2, sm: 3, md: "5vw", lg: "72px" }, minHeight: { xs: 64, md: 68 }, height: { xs: 64, md: 68 }, justifyContent: "space-between" }}>
           <Box data-hover onClick={() => go("Home")} sx={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
-            <Box component="img" src={arixLogo} alt="Arix Tech" sx={{ height: 170, width: "auto", objectFit: "contain", filter: "drop-shadow(0 0 10px rgba(0,212,255,0.35))", transition: "filter .3s", "&:hover": { filter: "drop-shadow(0 0 16px rgba(0,212,255,0.6))" } }} />
+            <Box component="img" src={arixLogo} alt="Arix Tech" sx={{ height: { xs: 116, sm: 136, md: 170 }, width: "auto", objectFit: "contain", filter: "drop-shadow(0 0 10px rgba(0,212,255,0.35))", transition: "filter .3s", "&:hover": { filter: "drop-shadow(0 0 16px rgba(0,212,255,0.6))" } }} />
           </Box>
 
           {!isMob && (
@@ -50,7 +50,7 @@ export function Navbar({ current, navigate }: { current: string; navigate: Navig
         </Toolbar>
       </AppBar>
 
-      <Drawer anchor="right" open={drawer} onClose={() => setDrawer(false)} PaperProps={{ sx: { width: 270, background: "rgba(2,6,16,.98)", backdropFilter: "blur(28px)", borderLeft: `1px solid ${BORDER}` } }}>
+      <Drawer anchor="right" open={drawer} onClose={() => setDrawer(false)} PaperProps={{ sx: { width: { xs: "min(82vw, 300px)", sm: 270 }, background: "rgba(2,6,16,.98)", backdropFilter: "blur(28px)", borderLeft: `1px solid ${BORDER}` } }}>
         <Box sx={{ p: 3, display: "flex", flexDirection: "column", gap: 1 }}>
           <Box onClick={() => go("Home")} sx={{ display: "flex", alignItems: "center", mb: 2, cursor: "pointer" }}>
             <Box component="img" src={arixLogo} alt="Arix Tech" sx={{ height: 32, width: "auto", objectFit: "contain", filter: "drop-shadow(0 0 8px rgba(0,212,255,0.3))" }} />

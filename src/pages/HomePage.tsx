@@ -7,47 +7,47 @@ import type { Navigate } from "../types/site";
 export function HomePage({ navigate }: { navigate: Navigate }) {
   return (
     <Box>
-      <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", px: { xs: 2, sm: 4, md: "5vw", lg: "80px" }, pt: "110px", pb: "80px", position: "relative" }}>
-        <Box sx={{ position: "absolute", top: "10%", left: "-10%", width: "55vw", height: "55vh", borderRadius: "50%", background: `radial-gradient(ellipse,rgba(0,212,255,.06),transparent 70%)`, pointerEvents: "none", zIndex: 0 }} />
-        <Box sx={{ position: "absolute", top: "30%", right: "-5%", width: "40vw", height: "40vh", borderRadius: "50%", background: `radial-gradient(ellipse,rgba(168,85,247,.05),transparent 70%)`, pointerEvents: "none", zIndex: 0 }} />
+      <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", px: { xs: 2, sm: 3, md: "5vw", lg: "80px" }, pt: { xs: "96px", sm: "104px", md: "110px" }, pb: { xs: "64px", sm: "72px", md: "80px" }, position: "relative", overflow: "hidden" }}>
+        <Box sx={{ position: "absolute", top: "10%", left: { xs: "-22%", md: "-10%" }, width: { xs: "78vw", md: "55vw" }, height: { xs: "36vh", md: "55vh" }, borderRadius: "50%", background: `radial-gradient(ellipse,rgba(0,212,255,.06),transparent 70%)`, pointerEvents: "none", zIndex: 0 }} />
+        <Box sx={{ position: "absolute", top: "30%", right: { xs: "-18%", md: "-5%" }, width: { xs: "64vw", md: "40vw" }, height: { xs: "28vh", md: "40vh" }, borderRadius: "50%", background: `radial-gradient(ellipse,rgba(168,85,247,.05),transparent 70%)`, pointerEvents: "none", zIndex: 0 }} />
 
-        <Box className="anim-up-1" sx={{ display: "inline-flex", alignItems: "center", gap: 1.25, mb: 3.5 }}>
+        <Box className="anim-up-1" sx={{ display: "inline-flex", alignItems: "center", gap: 1.25, mb: { xs: 2.5, md: 3.5 }, pr: 1 }}>
           <Box sx={{ width: 6, height: 6, borderRadius: "50%", background: C, boxShadow: `0 0 12px ${C},0 0 24px rgba(0,212,255,.5)`, animation: "blink 2.2s ease-in-out infinite" }} />
-          <Typography sx={{ fontFamily: MONO, fontSize: ".66rem", letterSpacing: ".22em", textTransform: "uppercase", color: C }}>AI-Powered Software Studio</Typography>
+          <Typography sx={{ fontFamily: MONO, fontSize: { xs: ".58rem", sm: ".66rem" }, letterSpacing: ".22em", textTransform: "uppercase", color: C }}>AI-Powered Software Studio</Typography>
         </Box>
 
-        <Typography variant="h1" className="anim-up-2" sx={{ fontSize: { xs: "3.2rem", sm: "5rem", md: "7rem", lg: "8.5rem" }, lineHeight: .9, letterSpacing: "-.04em", maxWidth: "14ch", mb: 4 }}>
+        <Typography variant="h1" className="anim-up-2" sx={{ fontSize: { xs: "2.7rem", sm: "4.2rem", md: "7rem", lg: "8.5rem" }, lineHeight: { xs: .96, md: .9 }, letterSpacing: "-.04em", maxWidth: { xs: "100%", md: "14ch" }, mb: { xs: 3, md: 4 } }}>
           We Build<br />
           <Box component="span" className="grad-text">Intelligent</Box><br />
           <Box component="span" sx={{ color: "text.primary", WebkitTextFillColor: "unset" }}>Digital</Box>{" "}
-          <Box component="span" sx={{ color: "text.secondary", WebkitTextFillColor: "unset", fontSize: { xs: "2.2rem", sm: "3.5rem", md: "5rem", lg: "6rem" } }}>Products</Box>
+          <Box component="span" sx={{ color: "text.secondary", WebkitTextFillColor: "unset", fontSize: { xs: "1.95rem", sm: "3rem", md: "5rem", lg: "6rem" } }}>Products</Box>
         </Typography>
 
-        <Typography className="anim-up-3" sx={{ fontSize: { xs: ".95rem", md: "1.1rem" }, color: "text.secondary", maxWidth: "52ch", lineHeight: 1.8, mb: 5.5 }}>
+        <Typography className="anim-up-3" sx={{ fontSize: { xs: ".95rem", md: "1.1rem" }, color: "text.secondary", maxWidth: { xs: "100%", sm: "52ch" }, lineHeight: 1.8, mb: { xs: 4, md: 5.5 }, pr: { xs: 1, sm: 0 } }}>
           Arix Tech engineers AI systems, Python & Django platforms, web scraping engines, and premium web experiences that perform in the real world.
         </Typography>
 
         <Box className="anim-up-4" sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-          <Box data-hover onClick={() => navigate("Contact")} className="hover-btn" sx={{ display: "inline-flex", alignItems: "center", gap: 1, fontFamily: MONO, fontSize: ".72rem", letterSpacing: ".08em", textTransform: "uppercase", color: "#000", background: `linear-gradient(135deg,${C},#0ea5e9)`, px: "28px", py: "14px", borderRadius: "7px", cursor: "pointer", fontWeight: 700, boxShadow: `0 0 28px rgba(0,212,255,.4)`, transition: "all .25s", "&:hover": { boxShadow: `0 0 48px rgba(0,212,255,.6)`, transform: "translateY(-3px)" } }}>
+          <Box data-hover onClick={() => navigate("Contact")} className="hover-btn" sx={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 1, fontFamily: MONO, fontSize: ".72rem", letterSpacing: ".08em", textTransform: "uppercase", color: "#000", background: `linear-gradient(135deg,${C},#0ea5e9)`, px: { xs: "22px", sm: "28px" }, py: "14px", minWidth: { xs: "100%", sm: "auto" }, borderRadius: "7px", cursor: "pointer", fontWeight: 700, boxShadow: `0 0 28px rgba(0,212,255,.4)`, transition: "all .25s", "&:hover": { boxShadow: `0 0 48px rgba(0,212,255,.6)`, transform: "translateY(-3px)" } }}>
             Start a Project <span>{"\u2192"}</span>
           </Box>
-          <Box data-hover onClick={() => navigate("Portfolio")} className="hover-btn" sx={{ display: "inline-flex", alignItems: "center", gap: 1, fontFamily: MONO, fontSize: ".72rem", letterSpacing: ".08em", textTransform: "uppercase", color: "text.secondary", background: "transparent", border: `1px solid rgba(120,170,220,.22)`, px: "28px", py: "14px", borderRadius: "7px", cursor: "pointer", transition: "all .25s", "&:hover": { borderColor: BHI, color: C } }}>
+          <Box data-hover onClick={() => navigate("Portfolio")} className="hover-btn" sx={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 1, fontFamily: MONO, fontSize: ".72rem", letterSpacing: ".08em", textTransform: "uppercase", color: "text.secondary", background: "transparent", border: `1px solid rgba(120,170,220,.22)`, px: { xs: "22px", sm: "28px" }, py: "14px", minWidth: { xs: "100%", sm: "auto" }, borderRadius: "7px", cursor: "pointer", transition: "all .25s", "&:hover": { borderColor: BHI, color: C } }}>
             View Our Work
           </Box>
         </Box>
 
-        <Box className="anim-up-5" sx={{ display: "flex", gap: { xs: 3, md: 6 }, flexWrap: "wrap", mt: 9, pt: 5, borderTop: `1px solid ${BORDER}` }}>
+        <Box className="anim-up-5" sx={{ display: "flex", gap: { xs: 3, md: 6 }, flexWrap: "wrap", mt: { xs: 6, md: 9 }, pt: { xs: 4, md: 5 }, borderTop: `1px solid ${BORDER}` }}>
           {[
             { val: <><Box component="span" sx={{ color: C }}>20</Box><Box component="span" sx={{ color: C, fontSize: ".55em" }}>+</Box></>, lbl: "Projects Delivered" },
             { val: <Box component="span" sx={{ background: `linear-gradient(90deg,${C},${V})`, WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>AI</Box>, lbl: "Core Expertise" },
             { val: "E2E", lbl: "Product Execution" },
           ].map((m, i) => (
             <Box key={i} sx={{ animation: `countUp .5s ${.1 * i + .8}s ease both` }}>
-              <Typography sx={{ fontFamily: SYNE, fontSize: "2.4rem", fontWeight: 800, letterSpacing: "-.03em", lineHeight: 1, mb: .5 }}>{m.val}</Typography>
+              <Typography sx={{ fontFamily: SYNE, fontSize: { xs: "2rem", md: "2.4rem" }, fontWeight: 800, letterSpacing: "-.03em", lineHeight: 1, mb: .5 }}>{m.val}</Typography>
               <Typography sx={{ fontFamily: MONO, fontSize: ".63rem", letterSpacing: ".15em", textTransform: "uppercase", color: TEXT3 }}>{m.lbl}</Typography>
             </Box>
           ))}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1, fontFamily: MONO, fontSize: ".65rem", letterSpacing: ".1em", color: G, border: `1px solid rgba(16,185,129,.2)`, px: 2, py: 1, borderRadius: 99, background: "rgba(16,185,129,.06)" }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1, fontFamily: MONO, fontSize: ".65rem", letterSpacing: ".1em", color: G, border: `1px solid rgba(16,185,129,.2)`, px: 2, py: 1, borderRadius: 99, background: "rgba(16,185,129,.06)", maxWidth: "100%" }}>
             <Box sx={{ width: 6, height: 6, borderRadius: "50%", background: G, boxShadow: `0 0 8px ${G}`, animation: "blink 2s ease-in-out infinite" }} />
             Available for Projects
           </Box>
@@ -89,14 +89,14 @@ export function HomePage({ navigate }: { navigate: Navigate }) {
 
       <Marquee />
 
-      <Box sx={{ px: { xs: 2, sm: 4, md: "5vw", lg: "80px" }, py: "80px", display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4,1fr)" }, gap: 2 }}>
+      <Box sx={{ px: { xs: 2, sm: 3, md: "5vw", lg: "80px" }, py: { xs: "56px", sm: "68px", md: "80px" }, display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4,1fr)" }, gap: 2 }}>
         {[
           { n: "20+", lbl: "Projects Delivered", icon: "\u{1F680}", color: C },
           { n: "100%", lbl: "Remote Delivery", icon: "\u{1F30D}", color: V },
           { n: "24h", lbl: "Response Time", icon: "\u26A1", color: G },
           { n: "E2E", lbl: "Full Stack Execution", icon: "\u{1F527}", color: AM },
         ].map((s, i) => (
-          <Box key={i} className="hover-card" sx={{ p: 3, background: CARD, border: `1px solid ${BORDER}`, borderRadius: 3, position: "relative", overflow: "hidden", "&::before": { content: '""', position: "absolute", inset: 0, background: `radial-gradient(ellipse at 30% 0%,${s.color}18,transparent 65%)`, opacity: 0, transition: "opacity .4s" }, "&:hover::before": { opacity: 1 } }}>
+          <Box key={i} className="hover-card" sx={{ p: { xs: 2.5, sm: 3 }, background: CARD, border: `1px solid ${BORDER}`, borderRadius: 3, position: "relative", overflow: "hidden", "&::before": { content: '""', position: "absolute", inset: 0, background: `radial-gradient(ellipse at 30% 0%,${s.color}18,transparent 65%)`, opacity: 0, transition: "opacity .4s" }, "&:hover::before": { opacity: 1 } }}>
             <Typography sx={{ fontSize: "1.5rem", mb: 1.5 }}>{s.icon}</Typography>
             <Typography sx={{ fontFamily: SYNE, fontSize: "2rem", fontWeight: 800, letterSpacing: "-.03em", color: s.color, mb: .5, textShadow: `0 0 20px ${s.color}60` }}>{s.n}</Typography>
             <Typography sx={{ fontFamily: MONO, fontSize: ".62rem", letterSpacing: ".12em", textTransform: "uppercase", color: TEXT3 }}>{s.lbl}</Typography>

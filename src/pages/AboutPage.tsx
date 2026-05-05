@@ -6,8 +6,8 @@ import { ABOUT_BULLETS, PROCESS } from "../data/siteData";
 
 export function AboutPage() {
   return (
-    <Box sx={{ pt: "120px", pb: "100px", px: { xs: 2, sm: 4, md: "5vw", lg: "80px" } }}>
-      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "1fr 1fr" }, gap: { xs: 6, lg: 10 }, alignItems: "center", mb: 14 }}>
+    <Box sx={{ pt: { xs: "96px", sm: "108px", md: "120px" }, pb: { xs: "72px", sm: "84px", md: "100px" }, px: { xs: 2, sm: 3, md: "5vw", lg: "80px" }, overflow: "hidden" }}>
+      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", lg: "1fr 1fr" }, gap: { xs: 6, lg: 10 }, alignItems: "center", mb: { xs: 8, md: 14 } }}>
         <Box sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center", justifyContent: "center", position: "relative", height: 460 }}>
           {[
             { s: 200, dur: 14, color: C, dot: "top" },
@@ -33,16 +33,16 @@ export function AboutPage() {
 
         <Box>
           <EyeLabel>About Arix Tech</EyeLabel>
-          <Typography variant="h2" sx={{ fontSize: { xs: "2.2rem", md: "3.4rem" }, letterSpacing: "-.035em", lineHeight: 1.05, mb: 2.5 }}>
+          <Typography variant="h2" sx={{ fontSize: { xs: "2rem", sm: "2.4rem", md: "3.4rem" }, letterSpacing: "-.035em", lineHeight: 1.05, mb: 2.5 }}>
             Built by engineers,<br /><Box component="span" className="grad-text">obsessed with craft</Box>
           </Typography>
-          <Typography sx={{ color: "text.secondary", lineHeight: 1.8, fontSize: "1.02rem", mb: 5 }}>
+          <Typography sx={{ color: "text.secondary", lineHeight: 1.8, fontSize: { xs: ".96rem", sm: "1.02rem" }, mb: { xs: 4, md: 5 } }}>
             {"Arix Tech helps brands and teams move faster with reliable software. From AI-driven products to Python backends, scraping systems, dashboards, and web apps \u2014 we build solutions that are practical, maintainable, and visually refined."}
           </Typography>
 
           <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
             {ABOUT_BULLETS.map((b, i) => (
-              <Box key={i} className="hover-card" sx={{ display: "flex", alignItems: "flex-start", gap: 2, p: "16px 20px", background: CARD, border: `1px solid ${BORDER}`, borderRadius: "10px", position: "relative", overflow: "hidden", "&::before": { content: '""', position: "absolute", left: 0, top: 0, bottom: 0, width: 2, background: b.color, borderRadius: "2px 0 0 2px", boxShadow: `0 0 10px ${b.color}60` } }}>
+              <Box key={i} className="hover-card" sx={{ display: "flex", alignItems: "flex-start", gap: 2, p: { xs: "14px 16px", sm: "16px 20px" }, background: CARD, border: `1px solid ${BORDER}`, borderRadius: "10px", position: "relative", overflow: "hidden", "&::before": { content: '""', position: "absolute", left: 0, top: 0, bottom: 0, width: 2, background: b.color, borderRadius: "2px 0 0 2px", boxShadow: `0 0 10px ${b.color}60` } }}>
                 <Typography sx={{ color: b.color, flexShrink: 0, fontSize: ".85rem", mt: "1px" }}>{"\u25B8"}</Typography>
                 <Typography sx={{ fontSize: ".9rem", color: "text.secondary", lineHeight: 1.65 }}>{b.text}</Typography>
               </Box>
@@ -52,18 +52,18 @@ export function AboutPage() {
       </Box>
 
       <GlowDiv />
-      <Box sx={{ mt: 10 }}>
+      <Box sx={{ mt: { xs: 8, md: 10 } }}>
         <EyeLabel color={V}>How We Work</EyeLabel>
-        <Typography variant="h2" sx={{ fontSize: { xs: "2.2rem", md: "3.4rem" }, letterSpacing: "-.035em", lineHeight: 1.05, mb: 2 }}>
+        <Typography variant="h2" sx={{ fontSize: { xs: "2rem", sm: "2.4rem", md: "3.4rem" }, letterSpacing: "-.035em", lineHeight: 1.05, mb: 2 }}>
           Our <Box component="span" sx={{ background: `linear-gradient(110deg,${V},#c084fc)`, WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>process</Box>
         </Typography>
-        <Typography sx={{ color: "text.secondary", maxWidth: "52ch", lineHeight: 1.8, mb: 8 }}>
+        <Typography sx={{ color: "text.secondary", maxWidth: { xs: "100%", sm: "52ch" }, lineHeight: 1.8, mb: { xs: 5, md: 8 } }}>
           A systematic, transparent approach from first conversation to live product.
         </Typography>
 
         <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(4,1fr)" }, gap: 3 }}>
           {PROCESS.map((p, i) => (
-            <Box key={i} className="hover-card" sx={{ p: "32px 26px", background: CARD, border: `1px solid ${BORDER}`, borderRadius: "14px", position: "relative", overflow: "hidden", "&::before": { content: '""', position: "absolute", inset: 0, background: `radial-gradient(ellipse at 30% 0%,${p.color}18,transparent 60%)`, opacity: 0, transition: "opacity .4s" }, "&:hover::before": { opacity: 1 } }}>
+            <Box key={i} className="hover-card" sx={{ p: { xs: "24px 18px", sm: "32px 26px" }, background: CARD, border: `1px solid ${BORDER}`, borderRadius: "14px", position: "relative", overflow: "hidden", "&::before": { content: '""', position: "absolute", inset: 0, background: `radial-gradient(ellipse at 30% 0%,${p.color}18,transparent 60%)`, opacity: 0, transition: "opacity .4s" }, "&:hover::before": { opacity: 1 } }}>
               <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 3 }}>
                 <Typography sx={{ fontFamily: MONO, fontSize: ".6rem", letterSpacing: ".2em", color: TEXT3 }}>{p.num} / PHASE</Typography>
                 <Box sx={{ fontFamily: SYNE, fontSize: "1.8rem", fontWeight: 800, color: `${p.color}30`, letterSpacing: "-.04em" }}>{p.num}</Box>

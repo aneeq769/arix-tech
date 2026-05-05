@@ -5,14 +5,14 @@ import { PORTFOLIO } from "../data/siteData";
 
 export function PortfolioPage() {
   return(
-    <Box sx={{pt:"120px",pb:"100px",px:{xs:2,sm:4,md:"5vw",lg:"80px"},position:"relative"}}>
-      <Box sx={{position:"absolute",top:"20%",left:"0",width:"50vw",height:"50vh",borderRadius:"50%",background:`radial-gradient(ellipse,rgba(0,212,255,.04),transparent 70%)`,pointerEvents:"none"}}/>
+    <Box sx={{pt:{ xs: "96px", sm: "108px", md: "120px" },pb:{ xs: "72px", sm: "84px", md: "100px" },px:{xs:2,sm:3,md:"5vw",lg:"80px"},position:"relative",overflow:"hidden"}}>
+      <Box sx={{position:"absolute",top:"20%",left:{ xs: "-18%", md: "0" },width:{ xs: "72vw", md: "50vw" },height:{ xs: "30vh", md: "50vh" },borderRadius:"50%",background:`radial-gradient(ellipse,rgba(0,212,255,.04),transparent 70%)`,pointerEvents:"none"}}/>
 
       <EyeLabel>Selected Work</EyeLabel>
-      <Typography variant="h2" sx={{fontSize:{xs:"2.2rem",md:"3.8rem"},letterSpacing:"-.035em",lineHeight:1.05,mb:2}}>
+      <Typography variant="h2" sx={{fontSize:{xs:"2rem",sm:"2.5rem",md:"3.8rem"},letterSpacing:"-.035em",lineHeight:1.05,mb:2}}>
         <Box component="span" className="grad-text">Built</Box> by Arix Tech
       </Typography>
-      <Typography sx={{color:"text.secondary",maxWidth:"52ch",lineHeight:1.8,fontSize:"1.02rem",mb:8}}>
+      <Typography sx={{color:"text.secondary",maxWidth:{ xs: "100%", sm: "52ch" },lineHeight:1.8,fontSize:{ xs: ".96rem", sm: "1.02rem" },mb:{ xs: 5, md: 8 }}}>
         Products across intelligence, automation, data systems, and elegant business interfaces.
       </Typography>
 
@@ -22,7 +22,7 @@ export function PortfolioPage() {
             "--pc":p.color,
             gridColumn:p.full?{xs:"span 1",md:"span 2"}:"span 1",
             background:CARD,border:`1px solid ${BORDER}`,
-            borderRadius:"16px",p:"36px 32px",
+            borderRadius:"16px",p:{ xs: "24px 18px", sm: "36px 32px" },
             position:"relative",overflow:"hidden",
             transition:"all .3s",
             "&::before":{content:'""',position:"absolute",inset:0,background:`radial-gradient(ellipse at 80% 10%,${p.color}14,transparent 55%)`,opacity:0,transition:"opacity .4s"},
@@ -33,9 +33,9 @@ export function PortfolioPage() {
               <Box sx={{width:4,height:4,borderRadius:"50%",background:p.color,boxShadow:`0 0 6px ${p.color}`}}/>
               {p.type}
             </Typography>
-            <Typography sx={{fontFamily:SYNE,fontSize:p.full?"1.7rem":"1.45rem",fontWeight:800,letterSpacing:"-.025em",mb:1.5}}>{p.name}</Typography>
+            <Typography sx={{fontFamily:SYNE,fontSize:{ xs: p.full ? "1.45rem" : "1.3rem", sm: p.full ? "1.7rem" : "1.45rem" },fontWeight:800,letterSpacing:"-.025em",mb:1.5,pr:{ xs: 0, sm: 7 }}}>{p.name}</Typography>
             <Typography sx={{fontSize:".88rem",color:"text.secondary",lineHeight:1.75,maxWidth:p.full?"72ch":undefined}}>{p.desc}</Typography>
-            <Typography sx={{position:"absolute",top:32,right:32,fontFamily:MONO,fontSize:".6rem",letterSpacing:".12em",color:TEXT3}}>{p.idx}</Typography>
+            <Typography sx={{position:"absolute",top:{ xs: 18, sm: 32 },right:{ xs: 18, sm: 32 },fontFamily:MONO,fontSize:".6rem",letterSpacing:".12em",color:TEXT3}}>{p.idx}</Typography>
             <Box sx={{position:"absolute",bottom:0,left:0,right:0,height:"2px",background:`linear-gradient(90deg,transparent,${p.color},transparent)`,opacity:0,transition:"opacity .35s",".hover-card:hover &":{opacity:1}}}/>
           </Box>
         ))}
